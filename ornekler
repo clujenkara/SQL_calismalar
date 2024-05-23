@@ -1,0 +1,64 @@
+/*SQL de Tablo Oluştruma Ornegi*/
+/*CREATE TABLE komutunun söz dizimi */
+CREATE TABLE tablo_adı (
+sütun1 veri_tipi(büyüklük) ,
+sütun2 veri_tipi(büyüklük) ,
+...
+sütunN veri_tipi(büyüklük) ,
+bütünlük_kısıtı1 ,
+...
+bütünlük_kısıtıN
+);
+
+/*Eğitmen tablosu oluştruma*/
+CREATE TABLE instructor (
+ID    char(5) ,
+name varchar(20) ,
+dept_name varchar(20) ,
+salary numeric(8,2) ,
+);
+/*Ogrenci tablosu oluştruma*/
+CREATE TABLE student (
+student_id int,
+first_name varchar(50) ,
+last_name varchar(50) ,
+birth_date date ,
+gender char(1) ,
+major varchar(50) ,
+credits smallint ,
+enrollment_date date ,
+PRIMARY KEY (student_id) 
+);
+/*Komutlar*/
+INSERT INTO instructor (ID , name, dept_name, salary )
+VALUES ('10211' , 'Lujen', 'math', '66000' ); -- Veri ekleme
+/* veri sime , delete /*
+DELETE from student;
+/* tablo silme , drop table */
+DROP TABLE r;
+/* tablo yapısını değiştirme  , alter */
+ALTER TABLE r DROP A;
+/* Örnek sorgu */
+SELECT name, salary
+FROM instructor
+WHERE dept_name = 'Computer Science'
+/* Kume karsilastirma, some*/
+select name
+from instructor
+where salary>some(select salary from instructor where dept name = 'Math');
+*/ Kume karsilastirma , all*/
+select name
+from instructor
+where salary > all (select salary from instructor where dept name = 'Math');
+/* exist */
+select course_id 
+from section as S
+where semester = 'Fall' and year = 2018
+and S.course_id = T.course_id);
+/* no exist */
+select distinct S.ID , S.name
+from student  as S
+where not exists (( select course_id from course where dept_name = 'Math' ) except ( select T.course_id from takes ass T where S.ID = T.ID));
+
+
+
