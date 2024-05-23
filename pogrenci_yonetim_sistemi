@@ -1,0 +1,19 @@
+--Veri tabanı oluşturma
+CREATE DATABASE OgrenciTonetimSistemi;
+--Ogrenci tablosunu oluştruma
+CREATE TABLE ogrenciler (
+ogrenci-id INT AUTO_INCREMENT PRIMARY KEY ,
+ad VARCHAR(50) ,
+soyad VARCHAR(50) ,
+dogum_tarihi DATE ,
+bolum VARCHAR(100) 
+);
+-- oGRENCİ BİLGİLERİNİ ekleme 
+INSERT INTO ogrenciler ( ad, soyad, dogum_tarihi, bolum) VALUES
+( 'Lujen' , 'Kara' ,'2001-09-10' ,'Bilgisayar Mühendisliği' ),
+( 'Derviş' , 'Okyay' , '2002-12-11' , 'Elektrik Mühendisliği' );
+
+--Tüm öğtrencileri listele
+SELECT * FROM ogrenciler ;
+--Belirli bir bolumdeki ogrencileri sorgulama
+SELECT * FROM ogrenciler WHERE bolum =' Bilgisayar Mühendisliği';
